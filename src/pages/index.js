@@ -1,0 +1,5 @@
+export { Home } from './Home'
+export { Episodes } from './Episodes'
+export { Locations } from './Locations'
+export { Characters } from './Characters'
+export { Error404 } from './Error404'

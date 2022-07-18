@@ -11,9 +11,9 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/episodes" element={<Episodes />} />
-            <Route path="/characters" element={<Characters />} />
-            <Route path="/locations" element={<Locations />} />
+            <Route path="/episode" element={<Episodes />} />
+            <Route path="/character" element={<Characters />} />
+            <Route path="/location" element={<Locations />} />
             <Route path="*" element={<Error404 />} />
           </Routes>
         </BrowserRouter>

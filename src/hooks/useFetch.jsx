@@ -6,20 +6,22 @@ export const useFetch = (params) => {
     const [data, setData] = useState({})
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(null)
+    const [page, setPage] = useState(1)
 
     useEffect(() => {
         setIsLoading(true)
-        fetch(`https://rickandmortyapi.com/api${pathname}${params || ""}`)
+        fetch(`https://rickandmortyapi.com/api${pathname}?page=${page}${params || ""}`)
             .then(res => res.json())
             .then(info => {
                 setData(info)
                 setIsLoading(false)
+                setError(null)
             })
             .catch(err => {
                 setError(err)
                 setIsLoading(false)
             })
-    }, [])
+    }, [params, page])
 
-    return {data, isLoading, error}
+    return { data, isLoading, error, page, setPage }
 }

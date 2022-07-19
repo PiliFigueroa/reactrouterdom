@@ -4,9 +4,7 @@ import { useFetch } from '../../hooks/useFetch'
 
 const Locations = () => {
 
-    const { data, isLoading, error } = useFetch(
-        `https://rickandmortyapi.com/api`
-    )
+    const { data, isLoading, error } = useFetch()
 
     return(
         <VStack>

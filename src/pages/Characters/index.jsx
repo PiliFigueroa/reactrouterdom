@@ -4,9 +4,7 @@ import { Cards } from '../../components/Cards'
 
 const Characters = () => {
 
-    const { data, isLoading, error } = useFetch(
-        `https://rickandmortyapi.com/api`
-    )
+    const { data, isLoading, error } = useFetch()
 
     return(
         <VStack>

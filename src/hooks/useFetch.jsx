@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useLocation  } from 'react-router-dom'
 
-export const useFetch = (url, params) => {
+export const useFetch = (params) => {
     const { pathname } = useLocation()
     const [data, setData] = useState({})
     const [isLoading, setIsLoading] = useState(false)
@@ -9,7 +9,7 @@ export const useFetch = (url, params) => {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch(`${url}${pathname}${params || ""}`)
+        fetch(`https://rickandmortyapi.com/api${pathname}${params || ""}`)
             .then(res => res.json())
             .then(info => {
                 setData(info)

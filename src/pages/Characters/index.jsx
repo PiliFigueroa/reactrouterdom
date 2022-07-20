@@ -1,4 +1,4 @@
-import { Heading, Center, VStack, Alert, AlertIcon, Spinner, Button, HStack, Spacer } from '@chakra-ui/react'
+import { Heading, Flex, VStack, Alert, AlertIcon, Spinner, Button, HStack, Spacer } from '@chakra-ui/react'
 import { useFetch } from '../../hooks/useFetch'
 import { Cards } from '../../components/Cards'
 
@@ -8,9 +8,13 @@ const Characters = () => {
 
     return(
         <VStack>
-        <Heading>Characters</Heading>
+            <Heading m="20px">Characters</Heading>
             {isLoading && <Spinner />}
-            {data.results && data.results.map(character => <Cards key={character.id} info={character} />)}
+            {data.results && 
+                <Flex wrap="wrap" justifyContent="center">
+                   {data.results.map(character => <Cards key={character.id} info={character} />)}
+                </Flex>
+            }
             {error && <Alert>
                     <AlertIcon  />
                     An error ocurred!

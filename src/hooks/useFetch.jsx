@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react"
-import { useLocation  } from 'react-router-dom'
+import { useLocation, useParams  } from 'react-router-dom'
 
 export const useFetch = (params) => {
     const { pathname } = useLocation()
+    const { id } = useParams()
     const [data, setData] = useState({})
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(null)
@@ -10,7 +11,7 @@ export const useFetch = (params) => {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch(`https://rickandmortyapi.com/api${pathname}?page=${page}${params || ""}`)
+        fetch(`https://rickandmortyapi.com/api${pathname}${page && `?page=${page}`}${params || ""}`)
             .then(res => res.json())
             .then(info => {
                 setData(info)
@@ -21,7 +22,7 @@ export const useFetch = (params) => {
                 setError(err)
                 setIsLoading(false)
             })
-    }, [params, page])
+    }, [params, page, id])
 
     return { data, isLoading, error, page, setPage }
 }

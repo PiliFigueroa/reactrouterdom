@@ -4,12 +4,11 @@ import { useLocation } from 'react-router-dom'
 export const useFetch = (params) => {
     const { pathname } = useLocation()
     const [data, setData] = useState({})
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState(null)
     const [page, setPage] = useState(1)
 
     useEffect(() => {
-        setIsLoading(true)
         fetch(`https://rickandmortyapi.com/api${pathname}?page=${page}${params || ""}`)
             .then(res => res.json())
             .then(info => {

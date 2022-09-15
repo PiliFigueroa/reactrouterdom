@@ -4,10 +4,10 @@ import { useFetch } from "../../hooks/useFetch"
 const CharacterDetail = () => {
 
     const { data, isLoading } = useFetch()
-    console.log(data)
+
     return(
         !isLoading && <Center mb="40px">
-            <HStack bg={data?.status === "Alive" ? "green.200" : "red.200"} padding={10} borderRadius={5} mt={10}>
+            <HStack bg="#242424" color="#fff" padding={10} borderRadius={5} mt={10}>
                 <Image src={data?.image} borderRadius={5} />
                 <VStack align="left" padding={15}>
                     <Heading mb={5}>{data?.name}</Heading>

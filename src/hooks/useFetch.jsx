@@ -15,7 +15,6 @@ export const useFetch = (params) => {
             .then(info => {
                 setData(info)
                 setIsLoading(false)
-                setError(null)
             })
             .catch(err => {
                 setError(err)

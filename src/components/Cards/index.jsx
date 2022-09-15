@@ -10,6 +10,10 @@ const Cards = ({ info }) => {
                 <Image rounded='md' src={info?.image} alt={info?.name} w="150px" />
                 <Flex alignItems="start" flexDirection="column" px="20px">
                 <HStack>
+                    <Text as="b">Name:</Text>
+                    <Text>{info?.name}</Text>
+                </HStack>
+                <HStack>
                     <Text as="b">Gender:</Text>
                     <Text>{info?.gender}</Text>
                 </HStack>

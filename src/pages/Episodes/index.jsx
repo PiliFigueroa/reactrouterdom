@@ -1,6 +1,7 @@
-import { Heading, VStack, Alert, AlertIcon, Spinner, List, ListIcon, ListItem, HStack, Button } from '@chakra-ui/react'
+import { Heading, VStack, Alert, AlertIcon, Spinner, List, ListIcon, ListItem, HStack } from '@chakra-ui/react'
 import { StarIcon } from '@chakra-ui/icons'
 import { useFetch } from '../../hooks/useFetch'
+import { ButtonBar } from '../../components/ButtonBar'
 
 const Episodes = () => {
 
@@ -25,10 +26,7 @@ const Episodes = () => {
                     An error ocurred!
                 </Alert>
             }
-            <HStack>
-                <Button colorScheme='green' isDisabled={page === 1} onClick={() => setPage(page - 1)}>Prev</Button>
-                <Button colorScheme='green' isDisabled={page === data?.info?.pages} onClick={() => setPage(page + 1)}>Next</Button>
-            </HStack>
+            <ButtonBar page={page} setPage={setPage} data={data} />
         </VStack>
     )
 }

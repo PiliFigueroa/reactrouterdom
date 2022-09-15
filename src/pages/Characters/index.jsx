@@ -2,14 +2,19 @@ import { Heading, Flex, VStack, Alert, AlertIcon, Spinner, Center } from '@chakr
 import { useFetch } from '../../hooks/useFetch'
 import { Cards } from '../../components/Cards'
 import { ButtonBar } from '../../components/ButtonBar'
+import { SearchForm } from '../../components/SearchForm'
+import { useState } from 'react'
 
 const Characters = () => {
 
-    const { data, isLoading, error, page, setPage } = useFetch()
+    const [filter, setFilter] = useState({})
+
+    const { data, isLoading, error, page, setPage } = useFetch(filter)
 
     return(
         <VStack>
             <Heading m="20px">Characters</Heading>
+            <SearchForm setFilter={setFilter} />
             <Center>
                 {isLoading && <Spinner />}
                 {data.results && 

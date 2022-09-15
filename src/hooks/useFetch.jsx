@@ -9,7 +9,8 @@ export const useFetch = (params) => {
     const [page, setPage] = useState(1)
 
     useEffect(() => {
-        fetch(`https://rickandmortyapi.com/api${pathname}?page=${page}${params || ""}`)
+        const URL = !Object.keys(params).length ? `https://rickandmortyapi.com/api${pathname}?page=${page}` : `https://rickandmortyapi.com/api${pathname}?page=${page}&name=${params.name}&status=${params.status}&gender=${params.gender}`
+        fetch(URL)
             .then(res => res.json())
             .then(info => {
                 setData(info)
